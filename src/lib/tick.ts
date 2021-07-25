@@ -13,5 +13,7 @@ export function getDateTuple() {
     nextTick.setSeconds(0)
     nextTick.setMinutes(min + 1)
   }
+  currentTick.setMilliseconds(0)
+  nextTick.setMilliseconds(0)
   return [now, currentTick, nextTick]
 }
