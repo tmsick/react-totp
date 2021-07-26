@@ -21,7 +21,6 @@ export const NewTotpForm: React.VFC<PropsNewTotpForm> = ({ onFormSubmit }) => {
     }
 
     // Delegate submission to handler
-    // const tick = getCurrentTick()
     const uuid = getUuid()
     onFormSubmit({ uuid, issuer, psk: psk.toUpperCase(), code: "" })
 
