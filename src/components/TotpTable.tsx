@@ -1,6 +1,5 @@
 import { Totp } from "./Totp"
-// import { TotpMeter } from "./TotpMeter"
-import { TotpProgress } from "./TotpProgress"
+import { TotpRemainderIndicator } from "./TotpRemainderIndicator"
 import { TotpTableRow } from "./TotpTableRow"
 
 interface Props {
@@ -22,8 +21,18 @@ export const TotpTable: React.VFC<Props> = ({
 }) => {
   return (
     <div className="box">
-      <h1 className="title">TOTPs</h1>
-      <TotpProgress now={now} currentTick={currentTick} nextTick={nextTick} />
+      <div className="columns">
+        <div className="column">
+          <h1 className="title is-5">TOTPs</h1>
+        </div>
+        <div className="column is-one-quarter">
+          <TotpRemainderIndicator
+            now={now}
+            currentTick={currentTick}
+            nextTick={nextTick}
+          />
+        </div>
+      </div>
       <table
         className="table is-hoverable is-fullwidth"
         style={{ textAlign: "center" }}

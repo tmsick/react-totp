@@ -55,7 +55,7 @@ export const NewTotpForm: React.VFC<Props> = ({ onFormSubmit }) => {
 
   return (
     <div className="box">
-      <h1 className="title">New TOTP</h1>
+      <h1 className="title is-5">New TOTP</h1>
       <form onSubmit={handleSubmit}>
         <div className="field">
           <label className="label">Issuer</label>
