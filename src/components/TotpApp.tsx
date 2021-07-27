@@ -1,6 +1,7 @@
 import { NewTotpForm } from "./NewTotpForm"
 import { Totp } from "./Totp"
 import { TotpTable } from "./TotpTable"
+import { WarningMessage } from "./WarningMessage"
 import { getDateTuple } from "../lib/tick"
 import { totp as getTotp } from "../lib/totp"
 import { useEffect, useState } from "react"
@@ -55,6 +56,7 @@ export const TotpApp = () => {
 
   return (
     <div className="container is-max-desktop" style={{ padding: "30px 10px" }}>
+      <WarningMessage />
       <NewTotpForm onFormSubmit={handleNewTotpFormSubmit} />
       <TotpTable
         totps={totps}
