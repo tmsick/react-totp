@@ -1,10 +1,9 @@
 import { hotp } from "./hotp"
-import base32Decode from "base32-decode"
 
 const T0 = 0
 const TIME_STEP = 30
 
-export function totp(key: string, date: Date, digit = 6): Promise<string> {
+export function totp(key: ArrayBuffer, date: Date, digit = 6): Promise<string> {
   const now = Math.floor(date.getTime() / 1000)
   const counter = Math.floor((now - T0) / TIME_STEP)
 
@@ -15,5 +14,5 @@ export function totp(key: string, date: Date, digit = 6): Promise<string> {
   const view8 = new Uint8Array(buffer)
   view8.reverse()
 
-  return hotp(base32Decode(key, "RFC3548"), buffer, digit)
+  return hotp(key, buffer, digit)
 }

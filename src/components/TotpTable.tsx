@@ -1,8 +1,9 @@
 import { Totp } from "./Totp"
-import { TotpMeter } from "./TotpMeter"
+// import { TotpMeter } from "./TotpMeter"
+import { TotpProgress } from "./TotpProgress"
 import { TotpTableRow } from "./TotpTableRow"
 
-interface PropsTotpTable {
+interface Props {
   totps: Totp[]
   onTotpCopyButtonClick: (uuid: string) => void
   onTotpRemove: (uuid: string) => void
@@ -11,7 +12,7 @@ interface PropsTotpTable {
   nextTick: Date
 }
 
-export const TotpTable: React.VFC<PropsTotpTable> = ({
+export const TotpTable: React.VFC<Props> = ({
   totps,
   onTotpCopyButtonClick,
   onTotpRemove,
@@ -20,10 +21,13 @@ export const TotpTable: React.VFC<PropsTotpTable> = ({
   nextTick,
 }) => {
   return (
-    <div>
-      <h1>TOTPs</h1>
-      <TotpMeter now={now} currentTick={currentTick} nextTick={nextTick} />
-      <table>
+    <div className="box">
+      <h1 className="title">TOTPs</h1>
+      <TotpProgress now={now} currentTick={currentTick} nextTick={nextTick} />
+      <table
+        className="table is-hoverable is-fullwidth"
+        style={{ textAlign: "center" }}
+      >
         <thead>
           <tr>
             <th>Issuer</th>

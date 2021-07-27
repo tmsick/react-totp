@@ -1,14 +1,10 @@
-interface MeterProps {
+interface Props {
   now: Date
   currentTick: Date
   nextTick: Date
 }
 
-export const TotpMeter: React.VFC<MeterProps> = ({
-  now,
-  currentTick,
-  nextTick,
-}) => {
+export const TotpMeter: React.VFC<Props> = ({ now, currentTick, nextTick }) => {
   return (
     <meter
       min={-nextTick.getTime()}

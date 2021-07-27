@@ -1,12 +1,12 @@
 import { Totp } from "./Totp"
 
-interface PropsTotpTableRow {
+interface Props {
   totp: Totp
   onTotpCopyButtonClick: (uuid: string) => void
   onTotpRemove: (uuid: string) => void
 }
 
-export const TotpTableRow: React.VFC<PropsTotpTableRow> = ({
+export const TotpTableRow: React.VFC<Props> = ({
   totp: { uuid, issuer, code },
   onTotpCopyButtonClick,
   onTotpRemove,
@@ -24,13 +24,29 @@ export const TotpTableRow: React.VFC<PropsTotpTableRow> = ({
     <tr>
       <td>{issuer}</td>
       <td>
-        <input type="text" value={code} readOnly />
+        <input
+          type="text"
+          value={code}
+          className="input is-small"
+          style={{ fontFamily: "monospace" }}
+          readOnly
+        />
       </td>
       <td>
-        <button onClick={handleCopyButtonClick}>Copy</button>
+        <button
+          onClick={handleCopyButtonClick}
+          className="button is-small is-info"
+        >
+          Copy
+        </button>
       </td>
       <td>
-        <button onClick={handleRemoveClick}>Remove</button>
+        <button
+          onClick={handleRemoveClick}
+          className="button is-small is-danger"
+        >
+          Remove
+        </button>
       </td>
     </tr>
   )

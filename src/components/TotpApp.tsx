@@ -54,7 +54,7 @@ export const TotpApp = () => {
   })
 
   return (
-    <div>
+    <div className="container is-max-desktop" style={{ padding: "30px 10px" }}>
       <NewTotpForm onFormSubmit={handleNewTotpFormSubmit} />
       <TotpTable
         totps={totps}
